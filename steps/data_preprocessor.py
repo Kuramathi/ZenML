@@ -4,7 +4,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator, img_to_arra
 
 
 @step
-def data_preprocessor(df):
+def data_preprocessor(df) -> pd.DataFrame:
     def preproc(image_path, target_size=(64, 64)):
         image = load_img(image_path, target_size=target_size, color_mode='grayscale')  # Resize and convert to grayscale
         image = img_to_array(image)

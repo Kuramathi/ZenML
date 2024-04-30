@@ -1,11 +1,13 @@
 from zenml import step
 import pandas as pd
 import numpy as np
+from typing import Tuple
 
 from sklearn.model_selection import train_test_split
 
+
 @step
-def split_data(df: pd.DataFrame):
+def split_data(df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     # Convert the features into a numpy array and stack them into a matrix
     X = np.stack(df['features'].values)
 

@@ -4,7 +4,8 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, classification_report
 
 
-def predict_model(X_test, y_test, model):
+@step
+def predict_model(X_test, y_test, model) -> float:
     # Predict the labels for the test set
     y_pred = model.predict(X_test)
 
@@ -12,8 +13,4 @@ def predict_model(X_test, y_test, model):
     accuracy = accuracy_score(y_test, y_pred)
     print(f"Accuracy: {accuracy * 100:.2f}%")
 
-    # Generate a classification report
-    report = classification_report(y_test, y_pred, target_names=df['label'].astype('category').cat.categories)
-    print(report)
-
-    return report
+    return accuracy
