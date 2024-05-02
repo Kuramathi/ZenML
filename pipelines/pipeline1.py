@@ -8,7 +8,7 @@ from steps.predict_model import predict_model
 
 @pipeline
 def pipeline1():
-    df_tuples = data_loader(base_path='../data')
+    df_tuples = data_loader(base_path='data')
     print("OK")
     df_preprocessed = data_preprocessor(df_tuples)
     print("OK")
